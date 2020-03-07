@@ -29,16 +29,17 @@ export default {
 .Left{
   background-color: #000;
   height: 100%;
-  width: 69%;
+  width: 100%;
   float:left;
 }
 
 .Right{
   background-color: salmon;
   height: 100%;
-  width: 31%;
-  float:left;
-  position: relative;
+  width: 320px;
+  right:0px;
+  z-index: 100;
+  position: absolute;
 }
 
 #Navbar {
@@ -47,16 +48,21 @@ export default {
 
 #person_1{
   content:url('../../assets/person/person_1.jpg');
-  width:54%;
-  height:36.7%;
-  position: absolute;
+  height:250px;
+  float:left;
 }
 
 #person_2{
   content:url('../../assets/person/person_2.jpg');
-  width:46%;
-  height:36.7%;
+  height:100px;
+  /* float:left; */
+}
+
+/* #person_3{
+  content:url('../../assets/person/person_3.jpg');
+  width:201px;
   position: absolute;
   right:0;
-}
+} */
+
 </style>
