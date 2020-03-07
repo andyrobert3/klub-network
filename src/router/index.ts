@@ -1,34 +1,29 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
+import LandingPage from '../views/LandingPage.vue';
+import FillFormsName from '../views/FillFormsName.vue'
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'LandingPage',
+    component: LandingPage,
   },
   {
-    path: '/about',
-    name: 'About',
+    path: '/FillFormsName',
+    name: 'FillFormsName',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-  },
-  {
-    path: '/contact_us',
-    name: 'Contact Us',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Contact_us.vue'),
+    // component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    component: FillFormsName,
   }
 ];
 
 const router = new VueRouter({
+  mode:"history",
   routes,
 });
 
