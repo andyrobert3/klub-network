@@ -7,29 +7,31 @@
 </template>
 
 <script lang="ts">
-
 // @Component
 // export default class HelloWorld extends Vue {
 //   @Prop() private msg!: string;
 // }
 
-export default{
+export default {
   name: "Navbar",
-  components:{
-  },
-  props:["NavbarList"]
-}
+  components: {},
+  props: ["NavbarList"]
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.Navbar{
+.Navbar {
   display: inline-block;
   padding: 0 10px 0 10px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 17px;
+  line-height: 30px;
+  text-align: center;
 }
 
-p{
-  color:white;
+p {
+  color: white;
 }
-
 </style>

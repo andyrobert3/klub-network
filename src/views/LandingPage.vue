@@ -1,20 +1,20 @@
 <template>
   <div id="LandingPage">
-    <div id="MainPage">
-      <Navbar id="Navbar" v-bind:NavbarList="NavbarList"></Navbar>
-    </div>
-    <div id="AboutMePage"></div>
+    <MainPage id="MainPage" v-bind:NavbarList="NavbarList"></MainPage>
+    <AboutMePage id="AboutMePage"></AboutMePage>
   </div>
 </template>
 
-
 <script>
-import Navbar from "../components/Navbar";
+
+import MainPage from '../components/MainPage/MainPage'
+import AboutMePage from '../components/AboutMePage/AboutMePage'
 
 export default {
   name: "LandingPage",
   components: {
-    Navbar
+    MainPage,
+    AboutMePage
   },
   data() {
     return {
@@ -35,14 +35,10 @@ export default {
 
 <style scoped>
 #MainPage {
-  background-color: #000;
   height: 100vh;
 }
 #AboutMePage {
   background-color: red;
   height: 100vh;
-}
-#Navbar {
-  margin-left: 80px;
 }
 </style>
