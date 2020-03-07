@@ -5,7 +5,7 @@
     </div>
     <p id="Intro_slogan">
       An elegent way
-      <br />to meet similar
+      <br>to meet similar
       <u>interests</u> people
     </p>
     <p

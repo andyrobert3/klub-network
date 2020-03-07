@@ -47,8 +47,16 @@ export default {
 
 #person_1{
   content:url('../../assets/person/person_1.jpg');
-  width:20%;
+  width:54%;
+  height:36.7%;
   position: absolute;
 }
 
+#person_2{
+  content:url('../../assets/person/person_2.jpg');
+  width:46%;
+  height:36.7%;
+  position: absolute;
+  right:0;
+}
 </style>
