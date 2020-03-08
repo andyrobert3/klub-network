@@ -9,7 +9,7 @@ import firebase from "./firebase/firebase";
 Vue.config.productionTip = false;
 
 let app: Vue;
-firebase.auth.onAuthStateChanged(user => {
+firebase.auth.onAuthStateChanged(() => {
   if (!app) {
     app = new Vue({
       router,
