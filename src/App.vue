@@ -8,9 +8,22 @@
 @font-face {
   font-family: "Avenir";
   src: url("./assets/fonts/AvenirLTStd-Roman.otf");
+  font-weight: normal;
 }
-body{
+
+@font-face {
   font-family: "Avenir";
-  margin:0px;
+  src: url("./assets/fonts/AvenirLTStd-Medium.otf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: url("./assets/fonts/AvenirLTStd-Black.otf");
+  font-weight: bold;
+}
+
+html {
+  font-family: "Avenir";
 }
 </style>
