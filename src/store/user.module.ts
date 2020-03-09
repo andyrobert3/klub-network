@@ -1,36 +1,38 @@
-import firebase from "../firebase/firebase";
-import {
-  FETCH_USER_PROFILE,
-  FETCHED_USER_FAILED,
-  FETCH_CURRENT_USER,
-  SET_USER_PROFILE
-} from "./actions.type";
+/* eslint-disable no-unused-vars */
+import firebaseConfig from "../firebase/firebase";
+import firebase from "firebase";
+
+import { FETCH_USER_PROFILE, SET_FIREBASE_USER } from "./actions.type";
+import { User } from "../common/types";
 
 const user = {
   state: {
-    currentUser: null,
-    userProfile: {}
+    currentUser: null
   },
   actions: {
-    async [FETCH_USER_PROFILE]({ commit, state }: any) {
+    async [FETCH_USER_PROFILE]({ commit }: any, payload: firebase.User) {
       try {
-        const result = await firebase.usersCollection
-          .doc(state.currentUser.uid)
-          .get();
-        commit(SET_USER_PROFILE, result.data);
+        const userRef = firebaseConfig.usersCollection.doc(payload?.uid);
+        const user: User = (await userRef.get()).data() as User;
+        if (user) {
+          commit(SET_FIREBASE_USER, user);
+        } else {
+          const newUser = {
+            email: payload?.email,
+            name: payload?.displayName,
+            photoURL: payload?.photoURL
+          } as User;
+
+          firebaseConfig.usersCollection.doc(payload?.uid).set(newUser);
+        }
       } catch (err) {
         console.error(err);
-        commit(FETCHED_USER_FAILED);
       }
     }
   },
   mutations: {
-    [FETCH_CURRENT_USER](state: any, val: any) {
-      state.currentUser = val;
-    },
-
-    [FETCH_USER_PROFILE](state: any, val: any) {
-      state.userProfile = val;
+    [SET_FIREBASE_USER](state: any, firebaseUser: firebase.User) {
+      state.currentUser = firebaseUser;
     }
   }
 };

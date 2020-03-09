@@ -30,7 +30,7 @@
 <script>
 import firebaseConfig from "../../firebase/firebase";
 import firebase from "firebase/app";
-import { FETCH_USER_PROFILE, SET_USER_PROFILE } from "../../store/actions.type";
+import { FETCH_USER_PROFILE } from "../../store/actions.type";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faTwitter,
@@ -62,8 +62,7 @@ export default {
     try {
       const { user } = await firebaseConfig.auth.getRedirectResult();
       if (user) {
-        this.$store.commit(SET_USER_PROFILE, user);
-        this.$store.dispatch(FETCH_USER_PROFILE);
+        this.$store.dispatch(FETCH_USER_PROFILE, user);
         console.log("user credentials", user);
       }
     } catch (err) {
