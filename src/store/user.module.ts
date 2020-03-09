@@ -24,6 +24,7 @@ const user = {
           } as User;
 
           firebaseConfig.usersCollection.doc(payload?.uid).set(newUser);
+          commit(SET_FIREBASE_USER, newUser);
         }
       } catch (err) {
         console.error(err);
