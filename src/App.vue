@@ -9,8 +9,7 @@
   font-family: "Avenir";
   src: url("./assets/fonts/AvenirLTStd-Roman.otf");
 }
-body{
+html {
   font-family: "Avenir";
-  margin:0px;
 }
 </style>
