@@ -48,7 +48,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $gray-shade: #c4c4c4;
 $twitter-color: #00acee;
 
@@ -72,7 +72,7 @@ $twitter-color: #00acee;
 button {
   width: 250px;
   border-radius: 16px;
-  font-weight: 800;
+  font-weight: bold;
 }
 
 .twitter {
