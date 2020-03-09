@@ -1,37 +1,50 @@
 <template>
   <div class="login-modal">
-    <div><h1>Sign Up or Log in</h1></div>
-    <div><h2>Your First Step to build your network</h2></div>
-    <div class="button-container">
-      <button class="twitter">Twitter</button>
+    <div>
+      <h1>Login via these platforms</h1>
+    </div>
+    <div>
+      <h2>Your First Step to your network</h2>
     </div>
     <div class="button-container">
-      <button class="google">Google</button>
+      <button class="twitter">
+        <font-awesome-icon :icon="['fab', 'twitter']" />
+        <span class="text">TWITTER</span>
+      </button>
     </div>
     <div class="button-container">
-      <button class="facebook">Facebook</button>
+      <button class="google" v-on:click="loginViaGoogle">
+        <font-awesome-icon :icon="['fab', 'google']" />
+        <span class="text">GOOGLE</span>
+      </button>
+    </div>
+    <div class="button-container">
+      <button class="facebook">
+        <font-awesome-icon :icon="['fab', 'facebook']" />
+        <span class="text">FACEBOOK</span>
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 import firebaseConfig from "../../firebase/firebase";
+import firebase from "firebase/app";
 import { FETCH_USER_PROFILE, SET_USER_PROFILE } from "../../store/actions.type";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faTwitter,
+  faFacebook,
+  faGoogle
+} from "@fortawesome/free-brands-svg-icons";
+
+library.add(faTwitter, faFacebook, faGoogle);
 
 const methods = {
   async loginViaGoogle() {
-    const provider = firebaseConfig.auth.GoogleAuthProvider();
+    const provider = new firebase.auth.GoogleAuthProvider();
     firebaseConfig.auth.useDeviceLanguage();
     await firebaseConfig.auth.signInWithRedirect(provider);
-
-    try {
-      const user = await firebaseConfig.auth.getRedirectResult();
-      this.$store.commit([SET_USER_PROFILE], user);
-      this.$store.dispatch([FETCH_USER_PROFILE]);
-      console.log("user credentials", user);
-    } catch (err) {
-      console.error(err);
-    }
   }
 };
 
@@ -44,7 +57,19 @@ export default {
       }
     };
   },
-  methods
+  methods,
+  async created() {
+    try {
+      const { user } = await firebaseConfig.auth.getRedirectResult();
+      if (user) {
+        this.$store.commit(SET_USER_PROFILE, user);
+        this.$store.dispatch(FETCH_USER_PROFILE);
+        console.log("user credentials", user);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
 };
 </script>
 
@@ -63,6 +88,11 @@ $twitter-color: #00acee;
   flex-direction: column;
   align-items: center;
   border-radius: 24px;
+}
+
+.text {
+  display: inline-block;
+  margin-left: 12px;
 }
 
 .button-container {
