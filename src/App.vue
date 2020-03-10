@@ -20,7 +20,6 @@
   opacity: 20%;
   border-radius: 50%;
   position:absolute;
-  z-index: -1;
 }
 
 .RedCircle{
@@ -28,7 +27,6 @@
   opacity: 20%;
   border-radius: 50%;
   position:absolute;
-  z-index: -1;
 }
 
 .Small{

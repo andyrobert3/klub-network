@@ -38,7 +38,7 @@ export default {
   height: 100vh;
 }
 #AboutMePage {
-  background-color: red;
+  background-color: #000;
   height: 100vh;
 }
 </style>

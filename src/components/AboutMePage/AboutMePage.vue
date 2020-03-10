@@ -1,21 +1,18 @@
 <template>
-    <div>
-        <p>About me page</p>
-    </div>
+  <div id="AboutMePage">
+      <HowLunchMateWorks />
+  </div>
 </template>
 
 <script>
+import HowLunchMateWorks from './HowLunchMateWorks'
 export default {
-    name:"AboutMePage",
-    components:{
-
-    }
-}
+  name: "AboutMePage",
+  components: {
+      HowLunchMateWorks
+  }
+};
 </script>
 
 <style scoped>
-p{
-    padding: 0;
-    margin: 0;
-}
 </style>

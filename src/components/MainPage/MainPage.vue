@@ -92,7 +92,7 @@ export default {
   height: 100%;
   width: calc(100vw - 375px);
   float: left;
-  z-index: -2;
+  z-index: -1;
 }
 
 .Right {
