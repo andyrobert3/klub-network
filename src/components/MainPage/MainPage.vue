@@ -72,10 +72,10 @@ export default {
 }
 
 #Slogan_1 {
-  font-family: "AvenirMedium";
   font-size: 36px;
   margin: 0;
-  font-weight: bold;
+  font-weight: 700;
+  position: relative;
 }
 
 #Slogan_2 {
@@ -105,10 +105,8 @@ export default {
 
 #MainPageSlogan {
   color: $WhiteColor;
-  /* top:25%;
-  left:20%;
-  position: absolute; */
-  /* position: absolute; */
+  z-index: 1;
+  position: relative;
   text-align: center;
 }
 

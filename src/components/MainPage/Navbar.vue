@@ -25,7 +25,6 @@ export default {
   display: inline-block;
   padding: 0 10px 0 10px;
   font-style: normal;
-  font-weight: 900;
   font-size: 17px;
   line-height: 30px;
   text-align: center;

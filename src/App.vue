@@ -6,7 +6,7 @@
 
 <style>
 
-@font-face {
+/* @font-face {
   font-family: "Avenir";
   src: url("./assets/fonts/AvenirLTStd-Roman.otf");
 }
@@ -14,7 +14,8 @@
 @font-face {
   font-family: "AvenirMedium";
   src: url("./assets/fonts/AvenirLTStd-Medium.otf");
-}
+} */
+
 .BlueCircle{
   background-color: #0500FF;
   opacity: 20%;
@@ -45,7 +46,7 @@
 }
 
 body{
-  font-family: "Avenir";
+  font-family: 'Nunito', sans-serif;
   margin:0px;
 }
 </style>
